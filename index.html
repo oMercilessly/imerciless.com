@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-pzMS8TDZF9KO8hq8ZKJf0FlKje9tC5oymZzv2XP3tVA7fuirYc6WrA6f01d5WHZ6UJIZ5J8M56FJOpRft8N7Kg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta content="iMerciless" property="og:title" />
+    <meta content="The official website for iMerciless!" property="og:description" />
+    <meta content="https://imerciless.com" property="og:url" />
+    <meta content="https://imerciless.com/icon.jpg" property="og:image" />
+    <meta content="#000001" data-react-helmet="true" name="theme-color" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ffffff, #000000, #d3d3d3, #333333);
+            color: #ffffff; /* Change text color to white */
+            animation: fadeIn 1.5s ease-in-out;
+            overflow: hidden;
+            background-size: 400% 400%;
+            background-position: 0% 50%;
+            position: relative;
+            z-index: 0;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: url('https://www.transparenttextures.com/patterns/dark-wood.png');
+            opacity: 0.1; /* Adjust the opacity of the pattern */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 4em;
+            font-weight: bold;
+            margin-bottom: 0.3em;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adjust text shadow color */
+            letter-spacing: 2px;
+            animation: fadeIn 1.5s ease-in-out, colorChange 5s infinite;
+        }
+
+        p {
+            font-size: 1.5em;
+            margin-top: 0;
+            color: #d3d3d3;
+            letter-spacing: 1px;
+        }
+
+        .countdown-container {
+            position: relative;
+            overflow: hidden;
+            margin-top: 1.5em;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); /* Adjust box shadow color */
+            background: linear-gradient(45deg, #ffffff, #000000, #d3d3d3, #333333);
+            z-index: 1;
+        }
+
+        .countdown-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: #ffffff;
+            background: linear-gradient(45deg, #ffffff, #000000, #d3d3d3, #333333);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s infinite;
+            border-radius: 10px;
+            z-index: 0;
+        }
+
+        .countdown {
+            font-size: 2.5em;
+            color: #ffffff;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Adjust text shadow color */
+            animation: countdownFadeIn 1.5s ease-in-out, colorChange 5s infinite;
+        }
+
+        .countdown span {
+            padding: 10px;
+            border-radius: 5px;
+            background-clip: text;
+            color: #333333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .countdown span:hover {
+            background-color: #ffffff;
+            color: #333333;
+        }
+
+        #end-date {
+            font-size: 1.2em;
+            margin-top: 0.5em;
+            color: #ffffff;
+            letter-spacing: 1px;
+            animation: fadeIn 1.5s ease-in-out 1 both;
+            z-index: 2;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes colorChange {
+            0%, 100% {
+                color: #ffffff;
+            }
+
+            25% {
+                color: #333333;
+            }
+
+            50% {
+                color: #d3d3d3;
+            }
+
+            75% {
+                color: #333333;
+            }
+        }
+
+        @keyframes countdownFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3em;
+            }
+
+            p {
+                font-size: 1.2em;
+            }
+
+            .countdown {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h1>Coming Soon!</h1>
+        <p>We're working on something awesome. Stay tuned!</p>
+        <div class="countdown-container">
+            <div class="countdown-bg"></div>
+            <div class="countdown" id="countdown">
+                <span id="days"></span>
+                <span>:</span>
+                <span id="hours"></span>
+                <span>:</span>
+                <span id="minutes"></span>
+                <span>:</span>
+                <span id="seconds"></span>
+            </div>
+        </div>
+        <div id="end-date"></div>
+    </div>
+    <script>
+        var countDownDate = new Date("Dec 31, 2023 00:00:00").getTime();
+
+        var countdown = setInterval(function () {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = formatTime(days);
+            document.getElementById("hours").innerText = formatTime(hours);
+            document.getElementById("minutes").innerText = formatTime(minutes);
+            document.getElementById("seconds").innerText = formatTime(seconds);
+
+            // Set the end date text
+            var endDateText = "End Date: " + new Date(countDownDate).toLocaleString();
+            document.getElementById("end-date").innerText = endDateText;
+
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+
+        function formatTime(time) {
+            return time < 10 ? "0" + time : time;
+        }
+    </script>
+</body>
+
+</html>
