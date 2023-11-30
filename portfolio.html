@@ -9,17 +9,21 @@
       font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f0f0f0;
+      background-color: #f5f5f5;
       overflow-x: hidden;
+      transition: background-color 0.3s ease;
     }
 
     header {
       text-align: center;
       padding: 50px;
-      background-color: #333;
+      background-color: #3498db;
       color: #fff;
       position: relative;
       z-index: 1;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 1s ease-out;
     }
 
     header::after {
@@ -45,11 +49,13 @@
       text-decoration: none;
       margin: 0 20px;
       font-size: 1.2em;
-      transition: color 0.3s ease;
+      transition: color 0.3s ease, transform 0.3s ease;
+      animation: fadeInUp 1s ease-out;
     }
 
     nav a:hover {
-      color: #55acee;
+      color: #2ecc71;
+      transform: scale(1.1);
     }
 
     section {
@@ -66,15 +72,23 @@
     .project {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start; /* Align items to the top */
       margin-bottom: 40px;
-      transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+      transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, filter 0.3s ease-out;
+      animation: fadeInUp 1s ease-out;
     }
 
     .project img {
-      width: 40%;
+      max-width: 100%; /* Set a maximum width for the image */
+      max-height: 200px; /* Set a maximum height for the image */
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, filter 0.3s ease-out;
+    }
+
+   .project:hover img {
+      transform: scale(1.1);
+      filter: brightness(110%);
     }
 
     .project:hover {
@@ -85,26 +99,37 @@
     .project-info {
       width: 45%;
       text-align: left;
+      max-width: 45%; /* Set a maximum width for the project info */
+      padding: 0 10px; /* Add padding for better spacing */
+      box-sizing: border-box; /* Include padding in the width calculation */
+      animation: fadeInUp 1s ease-out;
     }
 
     .project-status {
       width: 45%;
       text-align: right;
       color: #888;
+      max-width: 45%; /* Set a maximum width for the project status */
+      padding: 0 10px; /* Add padding for better spacing */
+      box-sizing: border-box; /* Include padding in the width calculation */
+      animation: fadeInUp 1s ease-out;
     }
-
+    
     h2 {
       color: #333;
+      margin-bottom: 10px;
     }
 
     p {
       color: #666;
+      margin-bottom: 20px;
     }
 
     .about-me {
       max-width: 600px;
       margin: 0 auto;
       text-align: left;
+      animation: fadeInUp 1s ease-out;
     }
 
     .about-me p {
@@ -126,12 +151,15 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       background-color: #fff;
       text-align: center;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease-out, filter 0.3s ease-out;
       position: relative;
+      animation: fadeInUp 1s ease-out;
     }
 
     .skill:hover {
       transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      filter: brightness(110%);
     }
 
     .progress-bar-container {
@@ -152,7 +180,7 @@
     .progress {
       height: 100%;
       border-radius: 4px;
-      background: linear-gradient(to right, #55acee, #007bb5);
+      background: linear-gradient(to right, #2ecc71, #3498db);
     }
 
     .percentage {
@@ -164,13 +192,15 @@
     }
 
     footer {
-      background-color: #333;
+      background-color: #3498db;
       color: #fff;
       text-align: center;
       padding: 20px;
       position: fixed;
       bottom: 0;
       width: 100%;
+      transition: background-color 0.3s ease;
+      animation: fadeInUp 1s ease-out;
     }
 
     /* Add animations */
@@ -209,9 +239,9 @@
     <h1 class="scale-animated">iMerciless</h1>
     <p class="scale-animated">Passionate Developer</p>
     <nav>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#about">About Me</a>
+      <a href="#projects" class="scale-animated">Projects</a>
+      <a href="#skills" class="scale-animated">Skills</a>
+      <a href="#about" class="scale-animated">About Me</a>
     </nav>
   </header>
 
@@ -221,7 +251,7 @@
     </div>
 
     <div class="project animated">
-      <img src="blissolic.jpg" alt="Project 1">
+      <img src="https://imerciless.com/blissolic.jpg" alt="Project 1">
       <div class="project-info">
         <h2>Project 1: Blissolic.com</h2>
         <p>Blissolic.com is an unofficial website for the youtuber Blissolic</p>
@@ -232,7 +262,7 @@
     </div>
 
     <div class="project animated">
-      <img src="merciless.jpg" alt="Project 2">
+      <img src="https://imerciless.com/merciless.jpg" alt="Project 2">
       <div class="project-info">
         <h2>Project 2: iMerciless.com</h2>
         <p>iMerciless.com is the OFFICIAL website for the youtuber iMerciless</p>
@@ -243,7 +273,7 @@
     </div>
     
     <div class="project animated">
-      <img src="moonsense.jpg" alt="Project 3">
+      <img src="https://imerciless.com/moonsense.jpg" alt="Project 3">
       <div class="project-info">
         <h2>Project 3: Moonsense Client</h2>
         <p>Moonsense Client is the #1 Minecraft PvP Client for 1.8.9 FPS and PvP</p>
