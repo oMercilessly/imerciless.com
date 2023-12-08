@@ -139,6 +139,16 @@
             z-index: 2;
         }
 
+        #random-message {
+            font-size: 1.2em;
+            margin-top: 0.5em;
+            color: #ffffff;
+            letter-spacing: 1px;
+            animation: fadeInUp 1.5s ease-in-out 2s both;
+            position: relative;
+            z-index: 2;
+        }
+
         @keyframes gradientAnimation {
             0% {
                 background-position: 0% 50%;
@@ -183,6 +193,18 @@
             }
         }
 
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 3em;
@@ -216,6 +238,7 @@
             </div>
         </div>
         <div id="end-date"></div>
+        <div id="random-message">Loading random message...</div>
     </div>
     <script>
         var countDownDate = new Date("Dec 31, 2023 00:00:00").getTime();
@@ -243,6 +266,24 @@
                 document.getElementById("countdown").innerHTML = "EXPIRED";
             }
         }, 1000);
+
+        // Array of random messages
+        var randomMessages = [
+            "Is there a secret message in the code?",
+            "What's the secret code?",
+            "... ... -... .--- -.-. -- ...- .... -.. --. ..- --. -.. -- .-.. -.- --.. .-- ----. --.. .. .... .-. --- -.-- -..- --.- --. -.-- ..--- ..-. ..- .. .... .--- .... -... -- -.. .-.. .. --. --.. -.-- -... ..--- ----- --. -.-- ... -... -- --.. -..- -.-. --. -.-. ..--- ...- .--- -... ..--- ..... -.- -.-. -.-- -... ----- -... -.-- -... --.. --.. -..- --.. .-.. -.-. -- ..-. ... .. --. .... ...- -.. -..- .--- --.. .-.. .. -... - -... ..--- .---- .-.. .. .... -... .-.. -... ...-- -... ... --.. ... -... -- .- .-- ..... -.- .. --. .---- .-.. .. --. ..-. -.- --.. --. .-.. .--- -.. --. .-.. ..--- --.. ... -... .... -... -- --.- --. -.-- ..--- ..-. ..- .--- ...-- --.- --. -.-. ...-- .-. ...- -.-. -.-. -... ...-- -.-- -..- .-. .--- .- --. .-.. ..- --.. -.-- ....- --. ...- ..--- .... .... -.. -.-. -... .... -... ... -... .--- .--. .-- -...- -...-"
+            // "SSBjcmVhdGUgdmlkZW9zIHRoYXQgY2FuIHJhbmdlIGZyb20gYSBmZXcgc2Vjb25kcyB0byBzZXZlcmFsIGhvdXJzLiBTb21lIHBlb3BsZSBmaW5kIG1lIGFkZGljdGl2ZSBhbmQgY2FuJ3Qgc3RvcCB3YXRjaGluZy4gV2hhdCBhbSBJPw=="
+        ];
+
+        // Display a random message every 5 seconds
+        setInterval(function () {
+            document.getElementById("random-message").innerText = getRandomElement(randomMessages);
+        }, 5000);
+
+        // Function to get a random element from an array
+        function getRandomElement(array) {
+            return array[Math.floor(Math.random() * array.length)];
+        }
 
         function formatTime(time) {
             return time < 10 ? "0" + time : time;
