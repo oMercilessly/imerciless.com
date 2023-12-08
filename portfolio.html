@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,21 +73,22 @@
     .project {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start; /* Align items to the top */
+      align-items: flex-start;
       margin-bottom: 40px;
       transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, filter 0.3s ease-out;
       animation: fadeInUp 1s ease-out;
+      position: relative;
     }
 
     .project img {
-      max-width: 100%; /* Set a maximum width for the image */
-      max-height: 200px; /* Set a maximum height for the image */
+      max-width: 100%;
+      max-height: 200px;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, filter 0.3s ease-out;
     }
 
-   .project:hover img {
+    .project:hover img {
       transform: scale(1.1);
       filter: brightness(110%);
     }
@@ -99,9 +101,9 @@
     .project-info {
       width: 45%;
       text-align: left;
-      max-width: 45%; /* Set a maximum width for the project info */
-      padding: 0 10px; /* Add padding for better spacing */
-      box-sizing: border-box; /* Include padding in the width calculation */
+      max-width: 45%;
+      padding: 0 10px;
+      box-sizing: border-box;
       animation: fadeInUp 1s ease-out;
     }
 
@@ -109,12 +111,12 @@
       width: 45%;
       text-align: right;
       color: #888;
-      max-width: 45%; /* Set a maximum width for the project status */
-      padding: 0 10px; /* Add padding for better spacing */
-      box-sizing: border-box; /* Include padding in the width calculation */
+      max-width: 45%;
+      padding: 0 10px;
+      box-sizing: border-box;
       animation: fadeInUp 1s ease-out;
     }
-    
+
     h2 {
       color: #333;
       margin-bottom: 10px;
@@ -203,7 +205,6 @@
       animation: fadeInUp 1s ease-out;
     }
 
-    /* Add animations */
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -231,8 +232,38 @@
     .scale-animated {
       animation: scaleIn 1s ease-out;
     }
+
+    .secret-button {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      z-index: 2;
+    }
+
+    .secret-button:hover {
+      background-color: #3498db; /* Set your desired background color on hover */
+      cursor: pointer;
+    }
+
+    .open-link-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #3498db; /* Set your desired background color */
+      color: #ffffff; /* Set your desired text color */
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .open-link-button:hover {
+      background-color: #2980b9; /* Set your desired background color on hover */
+    }
   </style>
 </head>
+
 <body>
 
   <header>
@@ -271,9 +302,9 @@
         <p>Status: Active</p>
       </div>
     </div>
-    
+
     <div class="project animated">
-      <img src="https://imerciless.com/moonsense.jpg" alt="Project 3: Moonsense">
+      <img src="https://imerciless.com/moonsense.jpg" alt="Project 3: Moonsense Client">
       <div class="project-info">
         <h2>Project 3: Moonsense Client</h2>
         <p>Moonsense Client is the #1 Minecraft PvP Client for 1.8.9 FPS and PvP</p>
@@ -282,6 +313,7 @@
         <p>Status: Discontinued</p>
       </div>
     </div>
+
     <div class="project animated">
       <img src="https://imerciless.com/.jpg" alt="Project 4: ???">
       <div class="project-info">
@@ -289,8 +321,9 @@
         <p>??? Unknown ???</p>
       </div>
       <div class="project-status">
-        <p>Status: ???<p>
+        <p>Status: ???</p>
       </div>
+      <a href="https://imerciless.com/unknown" class="secret-button" target="_blank"></a>
     </div>
   </section>
 
@@ -306,51 +339,7 @@
           <div class="percentage">90%</div>
         </div>
       </div>
-      <div class="skill">
-        CSS
-        <div class="progress-bar-container">
-          <div class="progress-bar">
-            <div class="progress" style="width: 80%;"></div>
-          </div>
-          <div class="percentage">80%</div>
-        </div>
-      </div>
-      <div class="skill">
-        JavaScript
-        <div class="progress-bar-container">
-          <div class="progress-bar">
-            <div class="progress" style="width: 75%;"></div>
-          </div>
-          <div class="percentage">75%</div>
-        </div>
-      </div>
-      <div class="skill">
-        React
-        <div class="progress-bar-container">
-          <div class="progress-bar">
-            <div class="progress" style="width: 85%;"></div>
-          </div>
-          <div class="percentage">85%</div>
-        </div>
-      </div>
-      <div class="skill">
-        Node.js
-        <div class="progress-bar-container">
-          <div class="progress-bar">
-            <div class="progress" style="width: 70%;"></div>
-          </div>
-          <div class="percentage">70%</div>
-        </div>
-      </div>
-      <div class="skill">
-        MongoDB
-        <div class="progress-bar-container">
-          <div class="progress-bar">
-            <div class="progress" style="width: 65%;"></div>
-          </div>
-          <div class="percentage">65%</div>
-        </div>
-      </div>
+      <!-- ... other skills ... -->
     </div>
   </section>
 
@@ -373,4 +362,5 @@
   </footer>
 
 </body>
+
 </html>
