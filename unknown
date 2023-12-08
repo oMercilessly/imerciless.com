@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unknown</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #600;
+      font-family: 'Indie Flower', cursive;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 0 20px 0px #600;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin: 0;
+      letter-spacing: 10px;
+      animation: glitch 0.5s infinite alternate, shake 1s infinite, flicker 0.2s infinite alternate, pulse 1.5s infinite, fade 8s infinite;
+    }
+
+    .coming-soon {
+      font-size: 1.5em;
+      margin-top: 20px;
+      opacity: 0;
+      animation: fadeInOut 5s infinite;
+    }
+
+    @keyframes glitch {
+      0%, 2%, 5%, 15%, 50%, 80%, 98%, 100% {
+        transform: skew(0deg);
+      }
+      10%, 20%, 25%, 40%, 60%, 70%, 90% {
+        transform: skewX(20deg);
+      }
+      30%, 45%, 55%, 75% {
+        transform: skewX(-20deg);
+      }
+    }
+
+    @keyframes shake {
+      0%, 100% {
+        transform: translateY(0) translateX(0);
+      }
+      25%, 75% {
+        transform: translateY(-10px) translateX(-10px);
+      }
+      50% {
+        transform: translateY(10px) translateX(10px);
+      }
+    }
+
+    @keyframes flicker {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    @keyframes fade {
+      0%, 100% {
+        color: #600;
+      }
+      50% {
+        color: #900;
+      }
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Unknown</h1>
+  <div class="coming-soon">"̴̩̍A̶̠̐n̴̤̕ ̴̮̈ơ̸̞m̵̜̽i̶͍͒ṉ̶͆o̶̙̿u̷̦̇s̷͇̽ ̸̭͘ẅ̷͎́h̷̖̎í̷̖s̸͉̔p̴͔̊ḙ̶̐ṙ̸̨ ̸̡͑e̶̢͗c̴̻̑h̷̗͌ö̸̱ȅ̶̘d̷̜̔ ̵̖̈́t̸̺̒h̵̜̀ṙ̸̢ō̸̤û̶͍g̸͍̀h̴̬́ ̵̱̚ẗ̷̥́h̸̲͘e̴̖͂ ̴̩͝s̶̗̀ḩ̷͌a̷̢͊d̴͚́ŏ̷̘ẉ̸̆s̶̥͊,̸̮͋ ̴͍̚f̴͇̈́ỏ̴̻r̷̝͆ȇ̶͍ț̸̇e̴̺͋l̶͔̀l̶͈̈́i̶̼̎n̶̛͈g̵̪̍ ̶̙͊a̵̪͝ ̵͍͋c̸̹͋h̵̙̔i̴͙͗l̸͙̅l̶̺̓i̵̤̓n̵̈͜g̷̰̈́ ̴̬̅r̵̥͠ė̴͎v̸͖̌ẻ̶̹l̴͔͆å̵̼ẗ̷̲́i̸̤͝o̶̫̿ṅ̶̘ ̶̖̈́a̴̛̝s̷̩̑ ̷̗̊t̵̫͛ḧ̷͎e̸̟͐ ̶̹́i̵͈̿ḿ̶͍p̴̣̎ȇ̵͚ǹ̸̞d̶i̶̮͝n̴̠̒ḡ̷̝ ̵̦̀m̵͎̓o̸̯̲̓̋ģ̷̔ ̷͙̓ẁ̶̯í̸̝ḽ̴͝ḽ̵̛ ̶̣͂b̷̫͆e̵̲͌ ̴̘̿u̵̧̔n̶͍̋v̴͖̊ȅ̵͇i̴̙̕l̶̼̄e̶͙̿d̶͖̈ ̷̫͛d̸̯͛r̵̼͝a̵̹͠w̷̬̿s̸̫̑ ̸̥͛n̸̠͒e̵̟̍a̴̞̾r̴̖̅.̶̘͊"</div>
+</body>
+</html>
