@@ -24,7 +24,7 @@
             justify-content: center;
             height: 100vh;
             background: linear-gradient(135deg, #ffffff, #000000, #d3d3d3, #333333);
-            color: #ffffff; /* Change text color to white */
+            color: #ffffff;
             animation: fadeIn 1.5s ease-in-out;
             overflow: hidden;
             background-size: 400% 400%;
@@ -42,7 +42,7 @@
             height: 100%;
             z-index: -1;
             background: url('https://www.transparenttextures.com/patterns/dark-wood.png');
-            opacity: 0.1; /* Adjust the opacity of the pattern */
+            opacity: 0.1;
         }
 
         @keyframes fadeIn {
@@ -68,7 +68,7 @@
             font-weight: bold;
             margin-bottom: 0.3em;
             color: #ffffff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adjust text shadow color */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             letter-spacing: 2px;
             animation: fadeIn 1.5s ease-in-out, colorChange 5s infinite;
         }
@@ -85,7 +85,7 @@
             overflow: hidden;
             margin-top: 1.5em;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); /* Adjust box shadow color */
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
             background: linear-gradient(45deg, #ffffff, #000000, #d3d3d3, #333333);
             z-index: 1;
         }
@@ -113,7 +113,7 @@
             justify-content: center;
             align-items: center;
             gap: 10px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Adjust text shadow color */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
             animation: countdownFadeIn 1.5s ease-in-out, colorChange 5s infinite;
         }
 
@@ -218,6 +218,63 @@
                 font-size: 2em;
             }
         }
+
+        /* Notification styles */
+        .notification-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 320px;
+            padding: 20px;
+            background-color: #333333;
+            color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .notification-container p {
+            flex: 1;
+            margin-right: 20px;
+            font-size: 0.9em;
+        }
+
+        .notification-container:hover {
+            background-color: #555555;
+        }
+
+        .notification-container.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .close-icon {
+            font-size: 24px;
+            cursor: pointer;
+            transform: rotate(45deg);
+            margin-top: -15px;
+        }
+
+        .close-icon:before,
+        .close-icon:after {
+            content: '';
+            position: absolute;
+            height: 24px;
+            width: 2px;
+            background-color: #fff;
+        }
+
+        .close-icon:before {
+            transform: rotate(90deg);
+        }
     </style>
 </head>
 
@@ -239,7 +296,35 @@
         </div>
         <div id="end-date"></div>
     </div>
+    <!-- Notification Container -->
+    <div class="notification-container animation" id="notification" onclick="closeNotification()">
+        <p>This is a modern and stylish notification. Stay updated with our latest news and announcements! It can be a bit longer to see how it looks with more text.</p>
+        <span class="close-icon"></span>
+    </div>
+
     <script>
+        // JavaScript to toggle the notification
+        document.addEventListener("DOMContentLoaded", function () {
+            const notification = document.getElementById("notification");
+
+            setTimeout(function () {
+                notification.classList.add("show");
+            }, 1000); // Show after 1 second
+
+            setTimeout(function () {
+                closeNotification();
+            }, 20000); // Automatically close after 20 seconds
+
+            notification.addEventListener("click", function () {
+                closeNotification();
+            });
+        });
+
+        function closeNotification() {
+            const notification = document.getElementById("notification");
+            notification.classList.remove("show");
+        }
+
         var countDownDate = new Date("Dec 31, 2023 00:00:00").getTime();
 
         var countdown = setInterval(function () {
@@ -265,24 +350,6 @@
                 document.getElementById("countdown").innerHTML = "EXPIRED";
             }
         }, 1000);
-
-        // Array of random messages
-        var randomMessages = [
-            "Is there a secret message in the code?",
-            "What's the secret code?",
-            "... ... -... .--- -.-. -- ...- .... -.. --. ..- --. -.. -- .-.. -.- --.. .-- ----. --.. .. .... .-. --- -.-- -..- --.- --. -.-- ..--- ..-. ..- .. .... .--- .... -... -- -.. .-.. .. --. --.. -.-- -... ..--- ----- --. -.-- ... -... -- --.. -..- -.-. --. -.-. ..--- ...- .--- -... ..--- ..... -.- -.-. -.-- -... ----- -... -.-- -... --.. --.. -..- --.. .-.. -.-. -- ..-. ... .. --. .... ...- -.. -..- .--- --.. .-.. .. -... - -... ..--- .---- .-.. .. .... -... .-.. -... ...-- -... ... --.. ... -... -- .- .-- ..... -.- .. --. .---- .-.. .. --. ..-. -.- --.. --. .-.. .--- -.. --. .-.. ..--- --.. ... -... .... -... -- --.- --. -.-- ..--- ..-. ..- .--- ...-- --.- --. -.-. ...-- .-. ...- -.-. -.-. -... ...-- -.-- -..- .-. .--- .- --. .-.. ..- --.. -.-- ....- --. ...- ..--- .... .... -.. -.-. -... .... -... ... -... .--- .--. .-- -...- -...-"
-            // "SSBjcmVhdGUgdmlkZW9zIHRoYXQgY2FuIHJhbmdlIGZyb20gYSBmZXcgc2Vjb25kcyB0byBzZXZlcmFsIGhvdXJzLiBTb21lIHBlb3BsZSBmaW5kIG1lIGFkZGljdGl2ZSBhbmQgY2FuJ3Qgc3RvcCB3YXRjaGluZy4gV2hhdCBhbSBJPw=="
-        ];
-
-        // Display a random message every 5 seconds
-        setInterval(function () {
-            document.getElementById("random-message").innerText = getRandomElement(randomMessages);
-        }, 5000);
-
-        // Function to get a random element from an array
-        function getRandomElement(array) {
-            return array[Math.floor(Math.random() * array.length)];
-        }
 
         function formatTime(time) {
             return time < 10 ? "0" + time : time;
